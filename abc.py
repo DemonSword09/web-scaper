@@ -38,7 +38,7 @@ def build():
             if p not in text2:
                 output.append(op)
                 file1.write(p + '\n')
-    print(*[str(j) + '.  ' + i + '\n' for j, i in enumerate(output)])
+    yield f"*[str(j) + '.  ' + i + '\n' for j, i in enumerate(output)];"
     for op in output[::-1]:
         url = 'https://play.google.com/store?code=' + op
         webbrowser.open(url, 2, False)
@@ -46,7 +46,7 @@ def build():
 
     file1.close()
     file2.close()
-    print("done!!!")
+    yield "done!!!"
 
 
 def app(environ, start_response):
